@@ -159,10 +159,6 @@ p.btn {
     
     }
 
-#fes-message { 
-  
-
-}
 
 h2.message__item {
      padding: 10px !important;
