@@ -1,28 +1,60 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+      <Header />
+    <v-content  background-color="white">
+      <transition
+        name="fade"
+        mode="out-in"
+      >
+     <router-view/>
+     </transition>
+    </v-content>
+    <Footer/>
+  </v-app>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from '@/components/Head.vue'
+import Footer from '@/components/Foot.vue'
 
 export default {
-  name: 'app',
+  name:'app',
   components: {
-    HelloWorld
+    Header,
+    Footer
   }
 }
 </script>
-
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.fade-enter-active {
+    animation: fadeIn 0.2s ease-in;
+  }
+  @keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+  .fade-leave-active {
+    animation: fadeOut .5s ease-in;
+  }
+  @keyframes fadeOut{
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+.theme--light.v-application {
+  background-color: white !important;
 }
 </style>
